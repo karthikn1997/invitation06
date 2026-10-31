@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Layer Animations */
+@keyframes garlandSlideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-garland-left {
+  animation: garlandSlideDown 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-garland-right {
+  animation: garlandSlideDown 1.3s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+@keyframes leafSlideUpLeft {
+  0% {
+    transform: translateY(100%) rotate(-15deg);
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(-8px) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-leaf-left {
+  animation: leafSlideUpLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes leafSlideUpRight {
+  0% {
+    transform: translateY(100%) rotate(15deg);
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(-8px) rotate(-2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-leaf-right {
+  animation: leafSlideUpRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+@keyframes coupleSlideDown {
+  0% {
+    transform: translateY(-100px) scale(0.92);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(8px) scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-couple-enter {
+  animation: coupleSlideDown 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Cinematic Line-by-Line Text Reveal */
+@keyframes lineByLineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+    filter: blur(3px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.02);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-line-reveal {
+  animation: lineByLineReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Falling flower petals */
+@keyframes fallDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(0deg) translateX(0);
+  }
+  15% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(105vh) rotate(360deg) translateX(35px);
+  }
+}
+
+.petal-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: fallDown linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #92400e 0%, #d97706 30%, #b45309 60%, #f59e0b 85%, #92400e 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
